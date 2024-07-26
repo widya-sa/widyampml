@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+    <title>Weather Prediction by Widya S.A.</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #00aaff, #0047ab);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            text-align: center;
+            color: #00695c;
+            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #00796b;
+            font-size: 18px;
+        }
+        .form-group input, .form-group select {
+            width: calc(100% - 22px);
+            padding: 14px;
+            font-size: 16px;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #004d40;
+            box-shadow: 0 0 8px rgba(0, 77, 64, 0.4);
+            transform: scale(1.02);
+            outline: none;
+        }
+        .form-group input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-weight: 700;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #004d40;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 248, 228, 0.9);
+            border: 1px solid #ffcc80;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #004d40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .form-group input[type="text"], .form-group select {
+            background: url('https://image.shutterstock.com/image-vector/sand-texture-seamless-pattern-600w-1918614796.jpg') no-repeat right bottom;
+            background-size: 15px 15px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .form-group input, .form-group select {
+                font-size: 14px;
+                padding: 12px;
+            }
+            .form-group input[type="submit"] {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather Prediction by Widya S.A.</h2>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="temperature">Temperature:</label>
+                <input type="text" id="temperature" name="Temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity:</label>
+                <input type="text" id="humidity" name="Humidity" required>
+            </div>
+            <div class="form-group">
+                <label for="wind_speed">Wind Speed:</label>
+                <input type="text" id="wind_speed" name="Wind Speed" required>
+            </div>
+            <div class="form-group">
+                <label for="precipitation">Precipitation (%):</label>
+                <input type="text" id="precipitation" name="Precipitation (%)" required>
+            </div>
+            <div class="form-group">
+                <label for="cloud_cover">Cloud Cover:</label>
+                <select id="cloud_cover" name="Cloud Cover" required>
+                    <option value="0">Clear</option>
+                    <option value="1">Cloudy</option>
+                    <option value="2">Overcast</option>
+                    <option value="3">Partly Cloudy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="atmospheric_pressure">Atmospheric Pressure:</label>
+                <input type="text" id="atmospheric_pressure" name="Atmospheric Pressure" required>
+            </div>
+            <div class="form-group">
+                <label for="uv_index">UV Index:</label>
+                <input type="text" id="uv_index" name="UV Index" required>
+            </div>
+            <div class="form-group">
+                <label for="season">Season:</label>
+                <select id="season" name="Season" required>
+                    <option value="0">Autumn</option>
+                    <option value="1">Spring</option>
+                    <option value="2">Summer</option>
+                    <option value="3">Winter</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="visibility">Visibility (km):</label>
+                <input type="text" id="visibility" name="Visibility (km)" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <select id="location" name="Location" required>
+                    <option value="0">Coastal</option>
+                    <option value="1">Inland</option>
+                    <option value="2">Mountain</option>
+                </select>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        {% if result %}
+        <div class="result">
+            The predicted weather is: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
